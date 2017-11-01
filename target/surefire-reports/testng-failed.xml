@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Suite]" parallel="methods">
+  <parameter name="browser" value="chrome"/>
+  <listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+  </listeners>
+  <test name="Test">
+    <parameter name="browser" value="chrome"/>
+    <packages>
+      <package name="com.TestDemo"/>
+    </packages>
+    <classes>
+      <class name="com.TestDemo.TestLogin">
+        <methods>
+          <include name="testLogin"/>
+        </methods>
+      </class> <!-- com.TestDemo.TestLogin -->
+      <class name="com.TestDemo.HomePage"/>
+      <class name="com.TestDemo.LoginModel"/>
+      <class name="com.TestDemo.MainPage"/>
+      <class name="com.TestDemo.Page"/>
+      <class name="com.TestDemo.TestCase$DriverManager"/>
+      <class name="com.TestDemo.TestCase"/>
+      <class name="com.TestDemo.TestLogin"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Failed suite [Suite] -->

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="2" thread-count="2" name="Suite" parallel="methods">
+  
+  <!-- listeners节点的位置在test上面，属于suite节点 -->
+  <listeners>
+  	<listener class-name="org.uncommons.reportng.HTMLReporter"/>
+  	<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+  	<listener class-name="com.TestDemo.Utils.logListener"/>
+  </listeners>
+  
+  <test name="Test">
+  	<parameter name="browser" value="chrome"/>
+	
+	<packages>
+		<package name="com.TestDemo"></package>
+	</packages>
+		
+    <classes>
+      <class name="com.TestDemo.TestLogin">
+      	<methods><!-- methods标签是在class下，以确定某个方法执行 -->
+			<include name="testLogin"></include>
+		</methods>
+      </class>
+    </classes>
+  	
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

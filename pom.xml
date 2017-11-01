@@ -1,0 +1,134 @@
+	<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.TestCase.TestDemo</groupId>
+  <artifactId>TestDemo</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>TestDemo</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+  	<finalName>testDemo</finalName>
+  	<plugins>
+  	<!-- 添加插件，关联testng.xml -->
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-surefire-plugin</artifactId> <!-- 具体插件名字间隔是 - 而不是. -->
+  			<version>2.19.1</version>
+  			<configuration>
+  				<suiteXmlFiles>
+  					<suiteXmlFile>res/testng.xml</suiteXmlFile>
+  				</suiteXmlFiles>
+  			</configuration>
+  		</plugin>
+
+  		<plugin>
+  			<groupId>org.apche.maven.plugins</groupId>
+  			<artifactId>maven-compiler-plugin</artifactId> <!-- 配置文件中出现spell的错误，其实不影响 -->
+  			<version>2.3.0</version>  <!-- 这个version节点还真不能省略，直接报错了... -->
+  			<configuration>
+  				<source>1.7</source>
+  				<target>1.7</target>
+  				<encoding>UTF-8</encoding>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+  </build>
+
+  <dependencies>
+  	<!-- 依赖selenium驱动包 -->
+  	<dependency>
+  		<groupId>org.seleniumhq.selenium</groupId>
+  		<artifactId>selenium-java</artifactId>
+  		<version>2.48.2</version>
+  		<scope>test</scope>
+  	</dependency>
+  	<!-- 依赖testng -->
+  	<dependency>
+  		<groupId>org.testng</groupId>
+  		<artifactId>testng</artifactId>
+  		<version>6.9.10</version>
+  		<scope>test</scope>
+  	</dependency>
+  	
+  	<!-- 依赖reportng，关联testng -->
+  	<dependency>
+  		<groupId>org.uncommons</groupId>
+  		<artifactId>reportng</artifactId>
+  		<version>1.1.4</version>
+  		<scope>test</scope>
+  		<exclusions>
+  			<exclusion>
+  				<groupId>org.testng</groupId>
+  				<artifactId>testng</artifactId>
+  			</exclusion>
+  		</exclusions>
+  	</dependency>
+  	
+  	<!-- 依赖Guice(一款轻量级DI注入) -->
+  	<dependency>
+  		<groupId>com.google.inject</groupId>
+  		<artifactId>guice</artifactId>
+  		<version>3.0</version>
+  		<scope>test</scope>
+  	</dependency>
+  	<!-- 依赖velocity -->
+  	<dependency>
+  		<groupId>velocity</groupId>
+  		<artifactId>velocity-dep</artifactId>
+  		<!-- 优先使用velocity-dep，其包含了velocity所需的依赖包 -->
+  		<version>1.4</version>
+  		<scope>test</scope>
+  	</dependency>
+  	<!-- 依赖log4j -->
+  	<dependency>
+  		<groupId>log4j</groupId>
+  		<artifactId>log4j</artifactId>
+  		<version>1.2.17</version>
+  	</dependency>
+  	<!-- 添加读取excel文件的依赖 -->
+  	<dependency>
+  		<groupId>org.apache.poi</groupId>
+  		<artifactId>poi</artifactId>
+  		<version>3.16</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.poi</groupId>
+  		<artifactId>poi-ooxml</artifactId>
+  		<version>3.16</version>
+  	</dependency>
+  	<!-- 添加json的依赖 -->
+  	<dependency>
+  		<groupId>net.sf.json-lib</groupId>
+  		<artifactId>json-lib</artifactId>
+  		<version>2.3</version>
+  		<classifier>jdk15</classifier>
+  	</dependency>
+  	<dependency>
+    	<groupId>org.swinglabs</groupId>
+    	<artifactId>swingx</artifactId>
+    	<version>1.6.1</version>
+	</dependency>
+  	<dependency>
+  		<groupId>org.uncommons</groupId>
+  		<artifactId>reportng</artifactId>
+  		<version>1.1.4</version>
+  		<scope>test</scope>
+  		<exclusions>
+  			<exclusion>
+  				<groupId>org.testng</groupId>
+  				<artifactId>testng</artifactId>
+  			</exclusion>
+  		</exclusions>
+  	</dependency>
+
+  </dependencies>
+
+</project>
